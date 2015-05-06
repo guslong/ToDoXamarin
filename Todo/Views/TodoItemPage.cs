@@ -49,11 +49,6 @@ namespace Todo
 			};
 
 
-			var speakButton = new Button { Text = "Speak" };
-			speakButton.Clicked += (sender, e) => {
-				var todoItem = (TodoItem)BindingContext;
-				DependencyService.Get<ITextToSpeech>().Speak(todoItem.Name + " " + todoItem.Notes);
-			};
 
 			Content = new StackLayout {
 				VerticalOptions = LayoutOptions.StartAndExpand,
@@ -62,8 +57,7 @@ namespace Todo
 					nameLabel, nameEntry, 
 					notesLabel, notesEntry,
 					doneLabel, doneEntry,
-					saveButton, deleteButton, cancelButton,
-					speakButton
+					saveButton, deleteButton, cancelButton
 				}
 			};
 		}

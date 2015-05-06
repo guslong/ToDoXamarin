@@ -10,11 +10,12 @@ namespace Todo
 
 		public App ()
 		{
-			var mainNav = new NavigationPage (new TodoListPage ());
-
+			// set the main page to a navigation page holding a TodoListPage
+			var mainNav = new NavigationPage (new TodoListPage ()); 
 			MainPage = mainNav;
 		}
 
+		// create a Database singleton
 		public static TodoItemDatabase Database {
 			get { 
 				if (database == null) {
@@ -24,8 +25,10 @@ namespace Todo
 			}
 		}
 
+		// will store the current ToDoId for application resumes
 		public int ResumeAtTodoId { get; set; }
 
+	
 		protected override void OnStart()
 		{
 			Debug.WriteLine ("OnStart");
